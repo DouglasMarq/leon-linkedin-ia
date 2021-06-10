@@ -1,5 +1,13 @@
-import config from 'config';
+import { get } from 'config';
+import { Core } from '../model';
+import { LinkedinClient } from '../model/client';
+import Container from './container';
 
-(() => {
-    console.log(config.get('data'));
+(async () => {
+    let container = Container();
+    await container.get<LinkedinClient>(LinkedinClient).getInstance().login.userPass({
+        username: get('data.account'),
+        password: get('data.password')
+    });
+    container.get<Core>(Core).setup();
 })();

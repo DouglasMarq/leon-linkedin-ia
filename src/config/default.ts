@@ -1,6 +1,9 @@
 export = {
     data: {
-        user: process.env.USERNAME,
+        account: process.env.ACCOUNT,
         password: process.env.PASSWORD
+    },
+    words: {
+        whitelist: ['VAGA', 'EMPREGO', 'PROFISSIONAL', 'JAVA', 'DESAFIO', 'JAVASCRIPT', 'JS', 'C#', 'XAMARIN', 'FRAMEWORK', 'VENHA SER', 'TRABALHAR', 'PYTHON', 'CV', 'CURRICULO', 'CURRICULUM VITAE', 'INDICAÇÃO', 'INDICAÇÕES', 'INDICACAO', 'INDICACOES', 'SENIOR', 'JUNIOR', 'PLENO', 'PL', 'JR', 'PJ', 'CLT', 'CONTRATACAO', 'CONTRATAÇÃO', 'MICROSERVICO', 'MICROSERVIÇOS', 'REACT', 'NODE', 'TS', 'TYPESCRIPT', 'SPRING', 'NETFLIX', 'TRABALHO', 'OFERTA', 'DEV', 'SCRUM', 'DESENVOLVEDOR', 'AZURE', 'AWS', 'FULLSTACK', 'BACKEND', 'BACK END', 'BACK-END', 'FRONTEND', 'FRONT-END', 'FRONT END', 'PRETENSÃO SALARIAL', 'NODE.JS', 'PROPOSTA', 'OPORTUNIDADE']
     }
 }
