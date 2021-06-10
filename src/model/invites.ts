@@ -43,7 +43,7 @@ export class Invites {
     private sendMessage(profileId: string, text: string) {
         setTimeout(async () => {
             return await this.client.getInstance().message.sendMessage({profileId: profileId, text: text});
-        }, 4500)
+        }, 4000)
     }
 
     async getInvites(skip?: number, limit?: number) {

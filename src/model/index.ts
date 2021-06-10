@@ -19,7 +19,7 @@ export class Core {
         this.invitesMap = undefined;
     }
 
-    async setup(timer: number = 10) {
+    async setup(timer: number = 7) {
         setInterval(async() => {
             console.log(new Date() + "-- Verificando por Convite");
             this.invitesMap = (await this.invite.getInvites()).map((item) => {
