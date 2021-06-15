@@ -114,15 +114,23 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/DouglasMarq/leon-linkedin-ia.git
    ```
-2. Install NPM packages
+2. Install NPM *or* yarn packages
    ```sh
    npm install
    ```
-    *OR*
 
    ```sh
-   yarn install
+   yarn
    ```
+
+3. Start the project
+    ```sh
+    npm run build && npm run start
+    ```
+
+    ```sh
+    yarn build && yarn start
+    ```
 
 
 
