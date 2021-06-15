@@ -2,6 +2,7 @@ import { inject, injectable } from 'inversify';
 import { LinkedinClient } from './client';
 import { Invites } from './invites';
 import { format } from 'date-fns';
+import { Log } from '../utils/log';
 
 @injectable()
 export class Core {
@@ -15,13 +16,14 @@ export class Core {
     }[] | undefined;
 
     constructor(@inject(LinkedinClient) public readonly client: LinkedinClient,
-    @inject(Invites) private readonly invite: Invites) {
+    @inject(Invites) private readonly invite: Invites,
+    @inject(Log) private readonly console: Log) {
         this.invitesMap = undefined;
     }
 
     async setup(timer: number = 7) {
         setInterval(async() => {
-            console.log(new Date() + " -- Verificando por Convite");
+            this.console.log("Verificando por Convite");
             this.invitesMap = (await this.invite.getInvites()).map((item) => {
                 return {
                     id: item.profile.profileId,
@@ -35,16 +37,16 @@ export class Core {
             });
             let user = this.invitesMap[0];
             if(user && user.message !== null) {
-                console.log(`${new Date()} -- Aceitando convite e enviando mensagem para: `, user);
+                this.console.log(`Aceitando convite e enviando mensagem para: ${user}`);
                 this.invite.acceptInviteAndSendMessage(user.invitationId, user.invitationSharedSecret, user.id, user.name);
             } else if (user && user.message === null) {
                 this.invite.acceptInvite(user.invitationId, user.invitationSharedSecret)
             }
-            console.log(new Date() + " -- Acabou a iteração");
+            this.console.log("Acabou a iteração");
         }, timer * 1000);
     }
 
-    async getInvites() {
+    get invites() {
         return this.invitesMap;
     }
 }

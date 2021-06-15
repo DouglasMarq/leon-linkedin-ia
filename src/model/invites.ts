@@ -9,7 +9,7 @@ export class Invites {
     }
 
     async acceptInvite(invitationId: string, invitationSharedSecret: string) {
-        return await this.client.getInstance().request.post(`relationships/invitations/${invitationId}?action=accept`, {
+        return await this.client.instance.request.post(`relationships/invitations/${invitationId}?action=accept`, {
             invitationId: invitationId,
             invitationSharedSecret: invitationSharedSecret,
             isGenericInvitation: false
@@ -18,7 +18,7 @@ export class Invites {
 
     async acceptInviteAndSendMessage(invitationId: string, invitationSharedSecret: string, profileId: string, profileName: string, message: string = "") {
         if(message) message = message.toUpperCase();
-        return await this.client.getInstance().request.post(`relationships/invitations/${invitationId}?action=accept`, {
+        return await this.client.instance.request.post(`relationships/invitations/${invitationId}?action=accept`, {
             invitationId: invitationId,
             invitationSharedSecret: invitationSharedSecret,
             isGenericInvitation: false
@@ -41,11 +41,11 @@ export class Invites {
 
     private sendMessage(profileId: string, text: string) {
         setTimeout(async () => {
-            return await this.client.getInstance().message.sendMessage({profileId: profileId, text: text});
+            return await this.client.instance.message.sendMessage({profileId: profileId, text: text});
         }, 4000)
     }
 
     async getInvites(skip?: number, limit?: number) {
-        return await this.client.getInstance().invitation.getReceivedInvitations().scrollNext();
+        return await this.client.instance.invitation.getReceivedInvitations().scrollNext();
     }
 }

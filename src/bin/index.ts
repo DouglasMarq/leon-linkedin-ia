@@ -5,7 +5,7 @@ import Container from './container';
 
 (async () => {
     let container = Container();
-    await container.get<LinkedinClient>(LinkedinClient).getInstance().login.userPass({
+    await container.get<LinkedinClient>(LinkedinClient).instance.login.userPass({
         username: get('data.account'),
         password: get('data.password')
     });

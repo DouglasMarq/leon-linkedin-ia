@@ -9,7 +9,5 @@ export class LinkedinClient {
         this.client = new Client();
     }
 
-    getInstance() {
-        return this.client;
-    }
+    public get instance() { return this.client }
 }
