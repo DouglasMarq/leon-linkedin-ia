@@ -9,7 +9,6 @@ export class Invites {
     }
 
     async acceptInvite(invitationId: string, invitationSharedSecret: string) {
-        console.log('aceitando convite');
         return await this.client.getInstance().request.post(`relationships/invitations/${invitationId}?action=accept`, {
             invitationId: invitationId,
             invitationSharedSecret: invitationSharedSecret,
@@ -17,7 +16,7 @@ export class Invites {
         });
     }
 
-    async acceptInviteAndSendMessage(invitationId: string, invitationSharedSecret: string, profileId: string, profileName: string, message: string = "Olá, olhei seu perfil profissional, tenho uma vaga para você bla bla bla") {
+    async acceptInviteAndSendMessage(invitationId: string, invitationSharedSecret: string, profileId: string, profileName: string, message: string = "") {
         if(message) message = message.toUpperCase();
         return await this.client.getInstance().request.post(`relationships/invitations/${invitationId}?action=accept`, {
             invitationId: invitationId,

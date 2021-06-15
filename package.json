@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node --max-old-space-size=24576 ./dist/index.js",
     "clean": "rm -Rf ./dist",
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc && cp ./src/.env ./dist/.env",
     "watch": "npm run build && tsc-watch --onSuccess \"npm start\"",
     "serve": "npm run build && npm run seed && npm run start"
   },

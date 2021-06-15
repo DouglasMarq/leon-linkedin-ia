@@ -21,7 +21,7 @@ export class Core {
 
     async setup(timer: number = 7) {
         setInterval(async() => {
-            console.log(new Date() + "-- Verificando por Convite");
+            console.log(new Date() + " -- Verificando por Convite");
             this.invitesMap = (await this.invite.getInvites()).map((item) => {
                 return {
                     id: item.profile.profileId,
@@ -34,13 +34,13 @@ export class Core {
                 }
             });
             let user = this.invitesMap[0];
-            if(user.message !== null) {
+            if(user && user.message !== null) {
                 console.log(`${new Date()} -- Aceitando convite e enviando mensagem para: `, user);
                 this.invite.acceptInviteAndSendMessage(user.invitationId, user.invitationSharedSecret, user.id, user.name);
-            } else {
-                console.log(`${new Date()} -- Aceitando convite para: `, user);
-                this.invite.acceptInvite(user.invitationId, user.invitationSharedSecret);
+            } else if (user && user.message === null) {
+                this.invite.acceptInvite(user.invitationId, user.invitationSharedSecret)
             }
+            console.log(new Date() + " -- Acabou a iteração");
         }, timer * 1000);
     }
 
