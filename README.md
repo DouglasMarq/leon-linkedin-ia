@@ -92,6 +92,7 @@
 
 * [LinkedIn Private API](https://github.com/eilonmore/linkedin-private-api)
 * [README Template](https://github.com/othneildrew/Best-README-Template)
+* [Free Logo Maker](https://freelogo.me)
 
 
 
