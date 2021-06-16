@@ -35,7 +35,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/DouglasMarq/leon-linkedin-ia">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.jpg" alt="Logo" width="350" height="175">
   </a>
 
   <h3 align="center">Leon Linkedin IA</h3>
