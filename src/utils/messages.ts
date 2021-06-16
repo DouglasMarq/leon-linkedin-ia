@@ -7,11 +7,13 @@ export class Messages {
     }
 
     greetings(profileName?: string, words?: string) {
-        return `Olá ${profileName}, sou Leon, o assistente virtual de Douglas dentro da plataforma da LinkedIn. \n
-        Vi que sua mensagem contém as seguintes palavras: [${words}], no momento, Douglas não está procurando por novos desafios. \n
-        Mas fique tranquilo(a)(e), irei avisa-lo de sua solicitação, obrigado por oferece-lo uma oportunidade! \n
-        Até mais, \n
-        Leon e Douglas.`;
+        return `Olá ${profileName}, sou Leon, o assistente virtual do Douglas dentro da plataforma da LinkedIn.
+        Vi que sua mensagem contém as seguintes palavras: [ ${words}]. Agradecemos o contato, porém no momento, Douglas não está procurando por novos desafios.
+        Mas fique tranquilo(a)(e), irei avisá-lo de sua solicitação. Obrigado por oferecê-lo uma oportunidade!
+        Até mais,
+        Leon e Douglas.
+
+        Se quiser saber mais sobre o projeto e esse bot, acesse: https://douglasmarques.io/true`;
     }
 
 }

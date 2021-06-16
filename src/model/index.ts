@@ -41,7 +41,7 @@ export class Core {
             let user: any = this.getInvite;
             if(user && user.message !== null) {
                 this.console.log(`Aceitando convite e enviando mensagem para: ${user}`);
-                this.invite.acceptInviteAndSendMessage(user.invitationId, user.invitationSharedSecret, user.id, user.name);
+                this.invite.acceptInviteAndSendMessage(user.invitationId, user.invitationSharedSecret, user.id, user.name, user.message);
             } else if (user && user.message === null) {
                 this.invite.acceptInvite(user.invitationId, user.invitationSharedSecret)
             }
