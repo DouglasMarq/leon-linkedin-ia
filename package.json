@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./dist/index.js",
     "clean": "rm -Rf ./dist",
-    "build": "npm run clean && tsc && cp ./src/.env ./dist/.env",
+    "build": "npm run clean && tsc",
+    "build2": "npm run clean && tsc && cp ./src/.env ./dist/.env",
     "postinstall": "npm run serve",
     "watch": "npm run build && tsc-watch --onSuccess \"npm start\"",
     "serve": "npm run build && npm run start"
