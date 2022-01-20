@@ -1,19 +1,28 @@
 import { Container } from 'inversify';
-import { LinkedinClient } from '../model/client';
-import { Core } from '../model';
-import { Invites } from '../model/invites';
-import { Log } from '../utils/log';
-import { Messages } from '../utils/messages';
+import { Client } from 'linkedin-private-api';
+import Core from '../model';
+import Invites from '../model/invites';
+import WordBlacklist from '../utils/blacklist';
+import Log from '../utils/log';
+import Messages from '../utils/messages';
 
-let container = new Container();
+let container: Container;
 
-export default function IoC() {
+export default function getContainer() {
+    if (!container) bindContainers();
 
-    container.bind<LinkedinClient>(LinkedinClient).to(LinkedinClient).inSingletonScope();
+    return container;
+}
+
+export function bindContainers() {
+    container = new Container();
+
+    container.bind<Client>(Client).toConstantValue(new Client());
     container.bind<Core>(Core).to(Core).inSingletonScope();
     container.bind<Invites>(Invites).to(Invites).inSingletonScope();
     container.bind<Log>(Log).to(Log).inSingletonScope();
     container.bind<Messages>(Messages).to(Messages).inSingletonScope();
+    container.bind<WordBlacklist>(WordBlacklist).to(WordBlacklist).inSingletonScope();
 
     return container;
 }

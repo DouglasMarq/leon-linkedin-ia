@@ -1,11 +1,7 @@
 import { injectable } from "inversify";
 
 @injectable()
-export class Messages {
-    constructor() {
-
-    }
-
+export default class Messages {
     greetings(profileName?: string, words?: string) {
         return `Olá ${profileName}, sou Leon, o assistente virtual do Douglas dentro da plataforma da LinkedIn.
         Vi que sua mensagem contém as seguintes palavras: [ ${words}]. Agradecemos o contato, porém no momento, Douglas não está procurando por novos desafios.

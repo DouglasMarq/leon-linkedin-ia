@@ -1,13 +1,11 @@
-import { get } from 'config';
-import { Core } from '../model';
-import { LinkedinClient } from '../model/client';
-import Container from './container';
+import { Client } from 'linkedin-private-api';
+import Core from '../model';
+import getContainer from './container';
 
 (async () => {
-    let container = Container();
-    await container.get<LinkedinClient>(LinkedinClient).instance.login.userPass({
-        username: get('data.account'),
-        password: get('data.password')
+    await getContainer().get<Client>(Client).login.userPass({
+        username: process.env.ACCOUNT!,
+        password: Buffer.from(process.env.PASSWORD!, 'base64').toString()
     });
-    container.get<Core>(Core).setup();
+    getContainer().get<Core>(Core).setup();
 })();

@@ -1,10 +1,10 @@
-export = {
-    data: {
-        account: process.env.ACCOUNT,
-        password: process.env.PASSWORD
-    },
-    words: {
-        blacklist: [
+import { injectable } from "inversify";
+
+@injectable()
+export default class WordBlacklist {
+    public readonly wordBlacklist: string[];
+    constructor() {
+        this.wordBlacklist = [
             'VAGA',
             'EMPREGO',
             'PROFISSIONAL',
@@ -60,6 +60,6 @@ export = {
             'NODE.JS',
             'PROPOSTA',
             'OPORTUNIDADE'
-        ]
+        ];
     }
 }
