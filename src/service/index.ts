@@ -17,6 +17,7 @@ export default class Core {
     async setup() {
         this._cron.schedule(`* * * * *`, async () => {
             this.console.log(`Starting Invite verification`);
+
             let user: Invite = (await this.invite.getInvites).map((item: any) => {
                 return {
                     id: item.profile.profileId,

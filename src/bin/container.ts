@@ -14,7 +14,7 @@ export default function getContainer() {
     return container;
 }
 
-export function bindContainers() {
+function bindContainers() {
     container = new Container();
 
     container.bind<Client>(Client).toConstantValue(new Client());
