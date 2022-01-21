@@ -1,7 +1,7 @@
 import { Container } from 'inversify';
 import { Client } from 'linkedin-private-api';
-import Core from '../model';
-import Invites from '../model/invites';
+import Core from '../service';
+import Invites from '../service/invites';
 import WordBlacklist from '../utils/blacklist';
 import Log from '../utils/log';
 import Messages from '../utils/messages';

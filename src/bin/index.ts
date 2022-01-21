@@ -1,5 +1,5 @@
 import { Client } from 'linkedin-private-api';
-import Core from '../model';
+import Core from '../service';
 import getContainer from './container';
 
 (async () => {

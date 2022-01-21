@@ -33,9 +33,7 @@ export default class Invites {
         if (!message) return;
 
         for(let i in this.words) {
-            if(message.includes(this.words[i])) {
-                passedWords += `${this.words[i]} `;
-            }
+            if(message.includes(this.words[i])) passedWords += `${this.words[i]} `;
         }
 
         const text = this.messages.greetings(profileName, passedWords);
