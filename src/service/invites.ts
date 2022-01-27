@@ -6,6 +6,7 @@ import WordBlacklist from "../utils/blacklist";
 @injectable()
 export default class Invites {
     private words: string[];
+
     constructor(@inject(Client) private readonly client: Client,
     @inject(Messages) private readonly messages: Messages,
     @inject(WordBlacklist) private readonly wordBL: WordBlacklist) {

@@ -18,7 +18,7 @@ export default class Core {
         this._cron.schedule(`* * * * *`, async () => {
             this.console.log(`Starting Invite verification`);
 
-            let user: Invite = (await this.invite.getInvites).map((item: any) => {
+            let user: Invite[] = (await this.invite.getInvites).map((item: any) => {
                 return {
                     id: item.profile.profileId,
                     name: `${item.profile.firstName} ${item.profile.lastName}`,
@@ -27,7 +27,7 @@ export default class Core {
                     invitationId: item.mailboxItemId.split(":")[item.mailboxItemId.split(":").length-1],
                     invitationSharedSecret: item.sharedSecret,
                 }
-            })[0];
+            });
 
             if(user && user.message) this.invite.acceptInviteAndSendMessage(user.invitationId, user.invitationSharedSecret, user.id, user.name, user.message);
             else if (user && !user.message) this.invite.acceptInvite(user.invitationId, user.invitationSharedSecret);
